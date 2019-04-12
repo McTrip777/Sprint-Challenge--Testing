@@ -21,9 +21,7 @@ describe('Games', () => {
       game = await Games.add({ title: 'Crash', genre: 'action' });
       expect(game.title).toBe('Crash');
     });
-  });
 
-  describe('Get()', () => {
     it('should add a game and compare it the result', async () => {
       let games = await Games.add({ title: 'RainbowSix', genre: 'shooter', releaseYear: 2010 });
       expect(games).toEqual({
@@ -32,7 +30,7 @@ describe('Games', () => {
         genre: 'shooter',
         releaseYear: 2010
       })
-
+  
       games = await Games.add({ title: 'Minecraft', genre: 'adventure' });
       expect(games).toEqual({
         id: 2,
@@ -42,6 +40,14 @@ describe('Games', () => {
       }
     )
     });
+  });
+
+  describe('Get()', () => {
+
+    it('should test for an empty arr', async () => {
+      let game = await Games.get();
+      expect(game).toEqual([]);
+    })
 
   });
 });
