@@ -17,12 +17,12 @@ describe('Server', () => {
     });
 
     describe('GET /games', () => {
-        it('should pass with /games', async () => {
+        it.skip('should pass with /games', async () => {
           const solution = await request(server).get('/games');
             expect(solution.status).toBe(200);
         });
   
-        it('should check for each game object using js Object Notation',  () => {
+        it.skip('should check for each game object using js Object Notation',  () => {
           return request(server).get('/games').expect('Content-Type', /json/);
         });
       });

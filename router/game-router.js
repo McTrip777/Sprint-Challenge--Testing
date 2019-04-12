@@ -16,6 +16,19 @@ router.get('/', async (req, res) => {
       }
 });
 
+// router.post('/', async (req, res) => {
+//     try {
+//         const game = await Games.add(req.body);
+//         if(game){
+//             res.status(200).json(game);
+//         }else{
+//             res.status(422).send('ERROR missing fields')
+//         }
+//     } catch (error) {
+//         res.status(500).json(error);
+//     }
+// });
+
 router.post('/', async (req, res) => {
     try {
         const game = await Games.add(req.body);
