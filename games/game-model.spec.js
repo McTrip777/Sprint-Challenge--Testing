@@ -2,7 +2,7 @@ const db = require('../data/dbConfig.js');
 const Games = require('./game-model.js');
 
 describe('Games', () => {
-  afterEach(async () => {
+  beforeEach(async () => {
     await db('games').truncate();
   });
   
@@ -39,6 +39,14 @@ describe('Games', () => {
         releaseYear: null
       }
     )
+    });
+
+    it('should releaseYear (null or not)', async () => {
+        let games = await Games.add({ title: 'RainbowSix', genre: 'shooter', releaseYear: 2010 });
+        expect(games.releaseYear).toEqual(2010)
+    
+        games = await Games.add({ title: 'Minecraft', genre: 'adventure' });
+        expect(games.releaseYear).toEqual(null)
     });
   });
 

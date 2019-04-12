@@ -23,10 +23,26 @@ describe('Server', () => {
             .then(response => {
                 expect(response.statusCode).toBe(200)
               });
-            }); 
         }); 
-    
+            
         it('should check for each game object using js Object Notation',  () => {
-          return request(server).get('/games').expect('Content-Type', /json/);
+            return request(server).get('/games').expect('Content-Type', /json/);
         });
+
+    }); 
+
+    describe('ADD /games', () => {
+        it('should check status of /games', async () => {
+          let game = await request(server).post('/games');
+          expect(game.status).toEqual(422)
+
+          game = await request(server).post('/games').send({ title:"pacman", genre:"arcade" });
+          expect(game.status).toEqual(200)
+
+          game = await request(server).post('/games').send({ title:"Smash Bros" });
+          expect(game.status).toEqual(422)
+
+        });
+      });
+
 }); 

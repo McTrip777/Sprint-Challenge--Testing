@@ -31,11 +31,18 @@ it() is the equivalent of test() which is a function that if done right will all
 
 1. What is the point of `Test Driven Development`? What do you think about this approach?
 
+Test Driven Developement it a process of sending your code though a sequence of tests to ensure utmost functionality. test => code => refactor v
+                ^  <=  <=  <=  <=  <=  <=
+
 I honestly can't stand testing, I think that if you can write clean code that functions then that is enough but testing is mainly for others not to break your code and to be able to see why certain things do what. For example if they move some code around and a test breaks they know they did something wrong.
 
 1. Mention three types of automated tests.
 
+UI -  run checks against the screens that users see. Actions such as typing, clicking, and moving around and other areas of the interface are the focus of UI testing. It is not always a good idea but remains effective in some situations.
 
+API - API tests ensure that all the individual components of a system work together. API testing involves compliance, security, and overall functionality. By testing these, you can make sure that there is complete compatibility between all the pieces of your product 
+
+Unit - Unit tests are really fast to execute. Normally unit tests are just a few lines of code. This means that a unit test can be coded in less than a minute if it tests something simple.
 
 
 ## Project Set Up
